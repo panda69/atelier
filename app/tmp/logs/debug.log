@@ -1,0 +1,2 @@
+2013-01-23 10:06:54 Debug: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [C:\wamp\www\Atelier\cake\libs\debugger.php, line 697]
+2013-01-23 10:06:54 Debug: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [C:\wamp\www\Atelier\cake\libs\debugger.php, line 701]
