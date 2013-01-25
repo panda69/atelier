@@ -539,3 +539,14 @@ div.code-coverage-results span.result-good {
 #url-rewriting-warning {
 	display: none;
 }
+
+.txtInput {
+	width:40px;
+	height:12px;
+	font-size: 100%;
+}
+
+.boxCalcResult {
+	margin:1;
+	color: red;
+}
