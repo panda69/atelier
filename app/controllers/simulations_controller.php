@@ -1,6 +1,7 @@
 <?php
 
 class SimulationsController extends AppController {
+	const MAX_UNIT = 16;
 	
 	private $distris = array(
 		1 => array("adv" => "-4.5%", "hands" => 0.0),
@@ -31,14 +32,31 @@ class SimulationsController extends AppController {
 	public $uses = array();
 	
 	public function index()	{
-		$i = 0;
+		$units = array();
+		for ($i=0; $i <= self::MAX_UNIT; $i++)	
+			$units[$i] = $i;
+				
 		$spread = array();
-		foreach($this->distris as $distri)	{
+		$defaultValues = array();
+		foreach($this->distris as $key => $distri)	{
 			$adv = $distri["adv"];
 			$tc = strval(round(floatval(substr($distri["adv"], 0, strlen($distri["adv"])-1)) * 2.0));
-			$spread[++$i] = $tc;
+			$spread[$key] = "TC = $tc";
+			if ($key <= 10)
+				$defaultValues[$key] = 1;
+			elseif ($key == 11) 
+				$defaultValues[$key] = 2;
+			elseif ($key == 12) 
+				$defaultValues[$key] = 4;
+			elseif ($key == 13) 
+				$defaultValues[$key] = 6;
+			elseif ($key >= 14) 
+				$defaultValues[$key] = 8;
 		}
-		$this->set('spread', $spread);		
+		
+		$this->set('spread', $spread);	
+		$this->set('units', $units);	
+		$this->set('defaultValues', $defaultValues);
 		
 		if (!empty($this->data))	{
 			$tnohp = 0.0; 
@@ -72,29 +90,6 @@ class SimulationsController extends AppController {
 					'RSL' => $tmpResult 
 				);  		
 			}
-			
-/*			
-			$resultPerHours = array(
-				1 => array(
-					'EV' => round($gph * 1.0 * $tnohp, 2),
-					'SD' => round($sd * sqrt(1.0 * $tnohp), 2)),
-				5 => array(
-					'EV' => round($gph * 5.0 * $tnohp, 2),
-					'SD' => round($sd * sqrt(5.0 * $tnohp), 2)),
-				10 => array(
-					'EV' => round($gph * 10.0 * $tnohp, 2),
-					'SD' => round($sd * sqrt(10.0 * $tnohp), 2)),
-				100 => array(
-					'EV' => round($gph * 100.0 * $tnohp, 2),
-					'SD' => round($sd * sqrt(100.0 * $tnohp), 2)),
-				1000 => array(
-					'EV' => round($gph * 1000.0 * $tnohp, 2),
-					'SD' => round($sd * sqrt(1000.0 * $tnohp), 2)),
-				10000 => array(
-					'EV' => round($gph * 10000.0 * $tnohp, 2),
-					'SD' => round($sd * sqrt(10000.0 * $tnohp), 2))
-			);
-*/
 			
 			$results = array(
 				'TNOHP' => $tnohp, 
