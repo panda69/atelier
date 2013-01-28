@@ -60,21 +60,20 @@ class SimulationsController extends AppController {
 			$gph = $g / $tnohp;
 			$wr = $gph / $abph;
 			$sd = (sqrt($sdx) * 1.1) / sqrt($tnohp); 
-			
-/*			
+						
 			$resultPerHours = array();
 			foreach(array(1,5,10,100,1000,10000) as $hours)	{
 				$tmpEV = round($gph * floatval($hours) * $tnohp, 2);
 				$tmpSD = round($sd * sqrt(floatval($hours) * $tnohp), 2);
-				$tmpResult = sprintf("Entre %d et %d", round($tmpEV - $tmpSD), round($tmpEV + $tmpSD));
+				$tmpResult = sprintf("Entre %d u et %d u", round($tmpEV - $tmpSD), round($tmpEV + $tmpSD));
 				$resultPerHours[$hours] = array(
 					'EV' => $tmpEV,
 					'SD' => $tmpSD,
 					'RSL' => $tmpResult 
 				);  		
 			}
-*/
 			
+/*			
 			$resultPerHours = array(
 				1 => array(
 					'EV' => round($gph * 1.0 * $tnohp, 2),
@@ -95,6 +94,7 @@ class SimulationsController extends AppController {
 					'EV' => round($gph * 10000.0 * $tnohp, 2),
 					'SD' => round($sd * sqrt(10000.0 * $tnohp), 2))
 			);
+*/
 			
 			$results = array(
 				'TNOHP' => $tnohp, 

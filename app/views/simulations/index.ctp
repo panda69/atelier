@@ -28,7 +28,7 @@
 					e("
 <p>
 For $key2 H(s) : EV = {$value2['EV']} and SD = {$value2['SD']}
-<br/>Result : {value2['RSL']}<br/>
+<br/>Result : {$value2['RSL']}<br/>
 </p>
 ");
 				}
