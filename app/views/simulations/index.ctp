@@ -25,7 +25,12 @@
 			if (is_array($value))	{
 				e("<p>---------------------------</p>");
 				foreach($value as $key2 => $value2)	{
-					e("<p>For $key2 H(s) : EV = {$value2['EV']} and SD = {$value2['SD']}</p>");
+					e("
+<p>
+For $key2 H(s) : EV = {$value2['EV']} and SD = {$value2['SD']}
+<br/>Result : {value2['RSL']}<br/>
+</p>
+");
 				}
 			} else	
 				e("<p>$key : $value</p>");
