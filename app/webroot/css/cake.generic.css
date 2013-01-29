@@ -547,6 +547,5 @@ div.code-coverage-results span.result-good {
 }
 
 .boxCalcResult {
-	margin:1;
-	color: red;
+	width:400px;
 }
