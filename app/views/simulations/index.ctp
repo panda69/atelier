@@ -1,19 +1,4 @@
-<?php
-	echo $this->Form->create("Simulations", array('action' => 'index'));
-	
-	foreach($spread as $key => $tc)	{
-		echo $this->Form->input($key,
-			array(
-				'type' => 'select',
-				'label' => $tc,
-				'options' => $units,
-				'selected' => !is_null($this->data['Simulations']) ? $this->data['Simulations'][$key] : $defaultValues[$key]
-			)
-		);
-	}
-
-	echo $this->Form->end('Calculer');
-	
+<?php	
 	if (!empty($this->data))	{
 		e('<div class="boxCalcResult">');
 		e("<table cols=\"2\" border>");
@@ -31,5 +16,20 @@
 		}
 		e("</table");
 		e('</div>');
+	} else	{
+		echo $this->Form->create("Simulations", array('action' => 'index'));
+	
+		foreach($spread as $key => $tc)	{
+			echo $this->Form->input($key,
+				array(
+					'type' => 'select',
+					'label' => $tc,
+					'options' => $units,
+					'selected' => !is_null($this->data['Simulations']) ? $this->data['Simulations'][$key] : $defaultValues[$key]
+				)
+			);
+		}
+
+		echo $this->Form->end('Calculer');
 	}
 ?>

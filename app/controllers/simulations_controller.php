@@ -2,6 +2,9 @@
 
 class SimulationsController extends AppController {
 	const MAX_UNIT = 16;
+	const MIN_SPREAD = 6;
+	const MAX_SPREAD = 14;
+	
 	
 	private $distris = array(
 		1 => array("adv" => "-4.5%", "hands" => 0.0),
@@ -38,20 +41,21 @@ class SimulationsController extends AppController {
 				
 		$spread = array();
 		$defaultValues = array();
-		foreach($this->distris as $key => $distri)	{
+		for ($i=self::MIN_SPREAD; $i <= self::MAX_SPREAD; $i++)	{
+			$distri = $this->distris[$i];
 			$adv = $distri["adv"];
 			$tc = strval(round(floatval(substr($distri["adv"], 0, strlen($distri["adv"])-1)) * 2.0));
-			$spread[$key] = "TC = $tc";
-			if ($key <= 10)
-				$defaultValues[$key] = 1;
-			elseif ($key == 11) 
-				$defaultValues[$key] = 2;
-			elseif ($key == 12) 
-				$defaultValues[$key] = 4;
-			elseif ($key == 13) 
-				$defaultValues[$key] = 6;
-			elseif ($key >= 14) 
-				$defaultValues[$key] = 8;
+			$spread[$i] = "TC = $tc";
+			if ($i <= 10)
+				$defaultValues[$i] = 1;
+			elseif ($i == 11) 
+				$defaultValues[$i] = 2;
+			elseif ($i == 12) 
+				$defaultValues[$i] = 4;
+			elseif ($i == 13) 
+				$defaultValues[$i] = 6;
+			elseif ($i >= 14) 
+				$defaultValues[$i] = 8;
 		}
 		
 		$this->set('spread', $spread);	
@@ -63,8 +67,16 @@ class SimulationsController extends AppController {
 			$g = 0.0;
 			$tub = 0.0;
 			$sdx = 0.0;
-			foreach($this->distris as $key => $distri)	{ 
-				$bp = floatval($this->data["Simulations"][$key]);
+			foreach($this->distris as $key => $distri)	{
+				$bp = 0.0; 
+				if (array_key_exists($key, $this->data["Simulations"]) === false)	{
+					if ($key < self::MIN_SPREAD)
+						$bp = floatval($this->data["Simulations"][self::MIN_SPREAD]);
+					else
+						$bp = floatval($this->data["Simulations"][self::MAX_SPREAD]);
+				} else
+					$bp = floatval($this->data["Simulations"][$key]);
+
 				$nohp = $bp > 0.0 ? floatval($distri["hands"]) : 0.0;
 				$tnohp += $nohp;
 				$ub = $nohp * $bp;
