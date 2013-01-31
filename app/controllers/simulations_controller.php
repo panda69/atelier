@@ -38,31 +38,40 @@ class SimulationsController extends AppController {
 		$units = array();
 		for ($i=0; $i <= self::MAX_UNIT; $i++)	
 			$units[$i] = $i;
+			
+		if (empty($this->data))	{
+			$defaultValues = array();
+			for ($i=self::MIN_SPREAD; $i <= self::MAX_SPREAD; $i++)	{
+				if ($i <= 10)
+					$defaultValues[$i] = 1;
+				elseif ($i == 11) 
+					$defaultValues[$i] = 2;
+				elseif ($i == 12) 
+					$defaultValues[$i] = 4;
+				elseif ($i == 13) 
+					$defaultValues[$i] = 6;
+				elseif ($i >= 14) 
+					$defaultValues[$i] = 8;
+			}
+		} elseif (array_key_exists('defaultValues', $this->data['Simulations']) !== false) {
+			$defaultValues = unserialize($this->data['Simulations']['defaultValues']);
+		} else {
+			$defaultValues = null;
+		}
 				
 		$spread = array();
-		$defaultValues = array();
 		for ($i=self::MIN_SPREAD; $i <= self::MAX_SPREAD; $i++)	{
 			$distri = $this->distris[$i];
 			$adv = $distri["adv"];
 			$tc = strval(round(floatval(substr($distri["adv"], 0, strlen($distri["adv"])-1)) * 2.0));
 			$spread[$i] = "TC = $tc";
-			if ($i <= 10)
-				$defaultValues[$i] = 1;
-			elseif ($i == 11) 
-				$defaultValues[$i] = 2;
-			elseif ($i == 12) 
-				$defaultValues[$i] = 4;
-			elseif ($i == 13) 
-				$defaultValues[$i] = 6;
-			elseif ($i >= 14) 
-				$defaultValues[$i] = 8;
 		}
 		
 		$this->set('spread', $spread);	
 		$this->set('units', $units);	
 		$this->set('defaultValues', $defaultValues);
 		
-		if (!empty($this->data))	{
+		if (!empty($this->data) && array_key_exists('defaultValues', $this->data['Simulations']) === false)	{
 			$tnohp = 0.0; 
 			$g = 0.0;
 			$tub = 0.0;

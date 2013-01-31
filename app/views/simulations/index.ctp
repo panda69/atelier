@@ -1,5 +1,5 @@
 <?php	
-	if (!empty($this->data))	{
+	if (!empty($this->data) && array_key_exists('defaultValues', $this->data['Simulations']) === false)	{
 		e('<div class="boxCalcResult">');
 		e("<table cols=\"2\" border>");
 		e("<caption>Résultats</caption>");
@@ -16,6 +16,10 @@
 		}
 		e("</table");
 		e('</div>');
+
+		echo $this->Form->create("Simulations", array('action' => 'index'));
+		print $form->hidden('defaultValues', array('value' => serialize($this->data['Simulations'])));
+		echo $this->Form->end('Back to simulation');
 	} else	{
 		echo $this->Form->create("Simulations", array('action' => 'index'));
 	
@@ -25,7 +29,7 @@
 					'type' => 'select',
 					'label' => $tc,
 					'options' => $units,
-					'selected' => !is_null($this->data['Simulations']) ? $this->data['Simulations'][$key] : $defaultValues[$key]
+					'selected' => $defaultValues[$key]
 				)
 			);
 		}
