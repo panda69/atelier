@@ -7,34 +7,125 @@ class SimulationsController extends AppController {
 	
 	
 	private $distris = array(
-		1 => array("adv" => "-4.5%", "hands" => 0.0),
-		2 => array("adv" => "-4.0%", "hands" => 0.0),
-		3 => array("adv" => "-3.5%", "hands" => 1.0),
-		4 => array("adv" => "-3.0%", "hands" => 2.0),
-		5 => array("adv" => "-2.5%", "hands" => 3.0),
-		6 => array("adv" => "-2.0%", "hands" => 4.0),
-		7 => array("adv" => "-1.5%", "hands" => 8.0),
-		8 => array("adv" => "-1.0%", "hands" => 13.0),
-		9 => array("adv" => "-0.5%", "hands" => 34.0),
-		10 => array("adv" => "0.0%", "hands" => 13.0),
-		11 => array("adv" => "0.5%", "hands" => 8.5),
-		12 => array("adv" => "1.0%", "hands" => 4.5),
-		13 => array("adv" => "1.5%", "hands" => 3.5),
-		14 => array("adv" => "2.0%", "hands" => 2.0),
-		15 => array("adv" => "2.5%", "hands" => 2.0),
-		16 => array("adv" => "3.0%", "hands" => 1.0),
-		17 => array("adv" => "3.5%", "hands" => 0.5),
-		18 => array("adv" => "4.0%", "hands" => 0.0),
-		19 => array("adv" => "4.5%", "hands" => 0.0),
-		20 => array("adv" => "5.0%", "hands" => 0.0),
-		21 => array("adv" => "6.0%", "hands" => 0.0),
-		22 => array("adv" => "7.0%", "hands" => 0.0),
-		23 => array("adv" => "8.0%", "hands" => 0.0)
+		"50%" => array(
+			1 => array("adv" => "-4.5%", "hands" => 0.0),
+			2 => array("adv" => "-4.0%", "hands" => 0.0),
+			3 => array("adv" => "-3.5%", "hands" => 0.0),
+			4 => array("adv" => "-3.0%", "hands" => 0.5),
+			5 => array("adv" => "-2.5%", "hands" => 1.0),
+			6 => array("adv" => "-2.0%", "hands" => 1.0),
+			7 => array("adv" => "-1.5%", "hands" => 7.5),
+			8 => array("adv" => "-1.0%", "hands" => 15.0),
+			9 => array("adv" => "-0.5%", "hands" => 47.5),
+			10 => array("adv" => "0.0%", "hands" => 15.5),
+			11 => array("adv" => "0.5%", "hands" => 7.5),
+			12 => array("adv" => "1.0%", "hands" => 2.0),
+			13 => array("adv" => "1.5%", "hands" => 1.0),
+			14 => array("adv" => "2.0%", "hands" => 1.0),
+			15 => array("adv" => "2.5%", "hands" => 0.5),
+			16 => array("adv" => "3.0%", "hands" => 0.0),
+			17 => array("adv" => "3.5%", "hands" => 0.0),
+			18 => array("adv" => "4.0%", "hands" => 0.0),
+			19 => array("adv" => "4.5%", "hands" => 0.0),
+			20 => array("adv" => "5.0%", "hands" => 0.0),
+			21 => array("adv" => "6.0%", "hands" => 0.0),
+			22 => array("adv" => "7.0%", "hands" => 0.0),
+			23 => array("adv" => "8.0%", "hands" => 0.0)
+		),
+		"65%" => array(
+			1 => array("adv" => "-4.5%", "hands" => 0.0),
+			2 => array("adv" => "-4.0%", "hands" => 0.0),
+			3 => array("adv" => "-3.5%", "hands" => 0.0),
+			4 => array("adv" => "-3.0%", "hands" => 1.0),
+			5 => array("adv" => "-2.5%", "hands" => 1.5),
+			6 => array("adv" => "-2.0%", "hands" => 4.0),
+			7 => array("adv" => "-1.5%", "hands" => 8.0),
+			8 => array("adv" => "-1.0%", "hands" => 14.0),
+			9 => array("adv" => "-0.5%", "hands" => 39.0),
+			10 => array("adv" => "0.0%", "hands" => 14.0),
+			11 => array("adv" => "0.5%", "hands" => 8.5),
+			12 => array("adv" => "1.0%", "hands" => 4.5),
+			13 => array("adv" => "1.5%", "hands" => 2.5),
+			14 => array("adv" => "2.0%", "hands" => 1.5),
+			15 => array("adv" => "2.5%", "hands" => 1.0),
+			16 => array("adv" => "3.0%", "hands" => 0.5),
+			17 => array("adv" => "3.5%", "hands" => 0.0),
+			18 => array("adv" => "4.0%", "hands" => 0.0),
+			19 => array("adv" => "4.5%", "hands" => 0.0),
+			20 => array("adv" => "5.0%", "hands" => 0.0),
+			21 => array("adv" => "6.0%", "hands" => 0.0),
+			22 => array("adv" => "7.0%", "hands" => 0.0),
+			23 => array("adv" => "8.0%", "hands" => 0.0)
+		),
+		"75%" => array(
+			1 => array("adv" => "-4.5%", "hands" => 0.0),
+			2 => array("adv" => "-4.0%", "hands" => 0.0),
+			3 => array("adv" => "-3.5%", "hands" => 1.0),
+			4 => array("adv" => "-3.0%", "hands" => 2.0),
+			5 => array("adv" => "-2.5%", "hands" => 3.0),
+			6 => array("adv" => "-2.0%", "hands" => 4.0),
+			7 => array("adv" => "-1.5%", "hands" => 8.0),
+			8 => array("adv" => "-1.0%", "hands" => 13.0),
+			9 => array("adv" => "-0.5%", "hands" => 34.0),
+			10 => array("adv" => "0.0%", "hands" => 13.0),
+			11 => array("adv" => "0.5%", "hands" => 8.5),
+			12 => array("adv" => "1.0%", "hands" => 4.5),
+			13 => array("adv" => "1.5%", "hands" => 3.5),
+			14 => array("adv" => "2.0%", "hands" => 2.0),
+			15 => array("adv" => "2.5%", "hands" => 2.0),
+			16 => array("adv" => "3.0%", "hands" => 1.0),
+			17 => array("adv" => "3.5%", "hands" => 0.5),
+			18 => array("adv" => "4.0%", "hands" => 0.0),
+			19 => array("adv" => "4.5%", "hands" => 0.0),
+			20 => array("adv" => "5.0%", "hands" => 0.0),
+			21 => array("adv" => "6.0%", "hands" => 0.0),
+			22 => array("adv" => "7.0%", "hands" => 0.0),
+			23 => array("adv" => "8.0%", "hands" => 0.0)
+		),
+		"85%" => array(
+			1 => array("adv" => "-4.5%", "hands" => 0.0),
+			2 => array("adv" => "-4.0%", "hands" => 0.0),
+			3 => array("adv" => "-3.5%", "hands" => 1.0),
+			4 => array("adv" => "-3.0%", "hands" => 1.5),
+			5 => array("adv" => "-2.5%", "hands" => 3.0),
+			6 => array("adv" => "-2.0%", "hands" => 5.0),
+			7 => array("adv" => "-1.5%", "hands" => 8.0),
+			8 => array("adv" => "-1.0%", "hands" => 13.5),
+			9 => array("adv" => "-0.5%", "hands" => 31.5),
+			10 => array("adv" => "0.0%", "hands" => 13.0),
+			11 => array("adv" => "0.5%", "hands" => 7.5),
+			12 => array("adv" => "1.0%", "hands" => 5.0),
+			13 => array("adv" => "1.5%", "hands" => 3.5),
+			14 => array("adv" => "2.0%", "hands" => 2.0),
+			15 => array("adv" => "2.5%", "hands" => 2.0),
+			16 => array("adv" => "3.0%", "hands" => 1.5),
+			17 => array("adv" => "3.5%", "hands" => 1.0),
+			18 => array("adv" => "4.0%", "hands" => 0.5),
+			19 => array("adv" => "4.5%", "hands" => 0.5),
+			20 => array("adv" => "5.0%", "hands" => 0.0),
+			21 => array("adv" => "6.0%", "hands" => 0.0),
+			22 => array("adv" => "7.0%", "hands" => 0.0),
+			23 => array("adv" => "8.0%", "hands" => 0.0)
+		)
 	);
 		
 	public $uses = array();
 	
 	public function index()	{
+		$penetrations = array("50%", "65%", "75%", "85%");
+		$this->set('penetrations', $penetrations);
+	}
+	
+	public function calc($penetration)	{
+		$this->set('error', '');
+		
+		$penetration .= '%';
+		if (array_key_exists($penetration, $this->distris) == false)	{
+			$this->set('error', 'Unknow penetration');
+			$this->render();
+			exit();
+		}
+		
 		$units = array();
 		for ($i=0; $i <= self::MAX_UNIT; $i++)	
 			$units[$i] = $i;
@@ -61,7 +152,7 @@ class SimulationsController extends AppController {
 				
 		$spread = array();
 		for ($i=self::MIN_SPREAD; $i <= self::MAX_SPREAD; $i++)	{
-			$distri = $this->distris[$i];
+			$distri = $this->distris[$penetration][$i];
 			$adv = $distri["adv"];
 			$tc = strval(round(floatval(substr($distri["adv"], 0, strlen($distri["adv"])-1)) * 2.0));
 			$spread[$i] = "TC = $tc";
@@ -76,7 +167,7 @@ class SimulationsController extends AppController {
 			$g = 0.0;
 			$tub = 0.0;
 			$sdx = 0.0;
-			foreach($this->distris as $key => $distri)	{
+			foreach($this->distris[$penetration] as $key => $distri)	{
 				$bp = 0.0; 
 				if (array_key_exists($key, $this->data["Simulations"]) === false)	{
 					if ($key < self::MIN_SPREAD)
